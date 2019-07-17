@@ -1,10 +1,13 @@
-﻿station_name,latitude,longitude,course_id
-KCABERKE85,,,2
-KCAALBAN12,,,2
-KCABERKE104,,,2
-KCASANFR1443,37.77702332,-122.4848404,0
-KCASANFR1086,,,0
-,,,0
-,,,1
-,,,1
-,,,1
+﻿station_name,latitude,longitude,course_id,comments
+KCABERKE85,,,2,
+KCAALBAN12,,,2,
+KCABERKE104,,,2,
+KCASANFR1443,37.77702332,-122.4848404,0,
+KCASANFR1086,,,0,
+KCASANFR1388,,,0,
+KCASANFR1422,,,0,
+KCASANFR1183,,,0,No wind data
+KCASANFR128,,,0,
+,,,1,
+,,,1,
+,,,1,
