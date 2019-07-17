@@ -1,0 +1,14 @@
+For maximum stability, the conda-forge channel is used as much as possible.  This
+ may be unnecessary as the keras install (which does not work with conda-forge) 
+will override most conda-forge packages, but until tested otherwise, we'll err on 
+the side of maximum compatibility.  We give Jupyter the lowest priority because 
+if something breaks, we'd rather it be the notebook.
+
+
+conda create -c conda-forge -n discgolf python=3.7
+conda install -c conda-forge beautifulsoup4
+conda install -c conda-forge pandas
+conda install -c conda-forge scikit-learn
+conda install keras
+conda install jupyter
+pip freeze > requirements.txt
