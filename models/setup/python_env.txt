@@ -11,4 +11,5 @@ conda install -c conda-forge pandas
 conda install -c conda-forge scikit-learn
 conda install keras
 conda install jupyter
+conda install matplotlib
 pip freeze > requirements.txt

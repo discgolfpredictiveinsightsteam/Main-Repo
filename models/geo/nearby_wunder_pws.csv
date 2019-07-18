@@ -8,6 +8,7 @@ KCASANFR1388,,,0,
 KCASANFR1422,,,0,
 KCASANFR1183,,,0,No wind data
 KCASANFR128,,,0,
-,,,1,
-,,,1,
-,,,1,
+KCAOAKLA170,,,1,"No wind gust, local time error"
+KCASANLE245,,,1,No wind data
+KCASANLE244,,,1,
+KCACASTR49,,,1,local time error
