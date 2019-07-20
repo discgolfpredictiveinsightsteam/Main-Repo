@@ -12,4 +12,5 @@ conda install -c conda-forge scikit-learn
 conda install keras
 conda install jupyter
 conda install matplotlib
+conda install statsmodels
 pip freeze > requirements.txt
