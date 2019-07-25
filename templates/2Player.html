@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<br>
+<br>
+
+<div class="container" style="background: rgba(255,255,255,.6);">
+    <div class="row">
+        <div class="col-md-12">
+            <br>
+            <h3>Course</h3>
+            <!-- create select here -->
+            <p>Select Currency:<select id="selDataset" onchange="optionChanged(this.value)"></select></p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Career Data</h3>
+            <div id="career">
+        </div>
+    </div>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col-md-12">
+            <div id="boxplotz"></div>
+        </div>
+    </div>
+</div>
+    <br>
+    <br>
+
+    <script src="{{ url_for('static', filename='js/career.js') }}"></script>
+
+{% endblock content %}
