@@ -77,11 +77,18 @@ def weather_data():
     base_url = 'https://api.darksky.net/forecast/'
     url = base_url + API_Key + '/37.8,-122.2,2019-08-01T08:00:00?exclude=current,flags'
     forecast = requests.get(url).json()
-    
-    return(jsonify(forecast['hourly']['data'][10]['windGust']))
+    list_1 = []
+
+    list_1.append(forecast['hourly']['data'][10]['windBearing'])
+    list_1.append(forecast['hourly']['data'][10]['windGust'])
+    list_1.append(forecast['hourly']['data'][10]['precipIntensity'])
+    # return(jsonify(forecast['hourly']['data'][10]['windGust']))
+    return(jsonify(list_1))
 
 
-
+#Donish needs: 1.wind gust (windGust)
+#2. wind direction (windBearing)
+#3. precipitation (precipIntensity)
 
 if __name__ == '__main__':
     app.run(debug=True)
