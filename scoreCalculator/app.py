@@ -1,7 +1,8 @@
 import os
+
 import numpy as np
 import pandas as pd
-
+from datetime import date
 import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
@@ -14,6 +15,7 @@ from flask import (
     redirect)
 
 from flask_sqlalchemy import SQLAlchemy
+import requests
 
 app = Flask(__name__)
 
@@ -66,6 +68,20 @@ def stats_data():
 
     print(Name)
     return jsonify(results)
+
+@app.route("/weather")
+def weather_data():
+    """Return weather prediction"""
+
+    API_Key = os.environ['DARKSKY_KEY']
+    base_url = 'https://api.darksky.net/forecast/'
+    url = base_url + API_Key + '/37.8,-122.2,2019-08-01T08:00:00?exclude=current,flags'
+    forecast = requests.get(url).json()
+    
+    return(jsonify(forecast['hourly']['data'][10]['windGust']))
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
