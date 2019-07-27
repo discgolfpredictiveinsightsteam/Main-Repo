@@ -1,17 +1,17 @@
-﻿station_id,latitude,longitude,course_id,comments
-KCABERKE85,,,2,no wind gust prior to 2018 and no wind guest in some 2019?
-KCAALBAN12,,,2,winds appear significantly different on 7/24/19
-KCABERKE104,,,2,
-KCABERKE28,,,2,
-KCASANFR1443,37.77702332,-122.4848404,0,
-KCASANFR1086,,,0,
-KCASANFR1388,,,0,
-KCASANFR1422,,,0,
-KCASANFR1183,,,0,No wind data
-KCASANFR128,,,0,
-KCAOAKLA170,,,1,"No wind gust, local time error"
-KCASANLE245,,,1,No wind data
-KCASANLE244,,,1,
-KCACASTR49,,,1,local time error
-KCASANLE16,,,1,local time error
-KCASANLE13,,,1,local time error
+﻿station_id,latitude,longitude,elevation,course_id,hardware,comments
+KCABERKE85,37.865,-122.287,72,2,AcuRite Pro Weather Center,no wind gust prior to 2018 and no wind guest in some 2019?
+KCAALBAN12,37.889,-122.306,72,2,Ambient Weather WS 1002 WiFi,winds appear significantly different on 7/24/19
+KCABERKE104,37.859,-122.282,76,2,Ambient Weather WS 1400 IP,
+KCABERKE28,37.852,-122.288,92,2,Davis Vantage Pro II - weewx 1.14.1,
+KCASANFR1443,37.77702332,-122.4848404,,0,,
+KCASANFR1086,,,,0,,
+KCASANFR1388,,,,0,,
+KCASANFR1422,,,,0,,
+KCASANFR1183,,,,0,,No wind data
+KCASANFR128,,,,0,,
+KCAOAKLA170,,,,1,,"No wind gust, local time error"
+KCASANLE245,,,,1,,No wind data
+KCASANLE244,,,,1,,
+KCACASTR49,,,,1,,local time error
+KCASANLE16,,,,1,,local time error
+KCASANLE13,,,,1,,local time error

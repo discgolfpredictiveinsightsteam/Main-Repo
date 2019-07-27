@@ -1,0 +1,8 @@
+﻿hardware,measure,hardware_name,description,wx_underground 
+AcuRite Pro Weather Center,wind_spd,current_wind,highest wind speed in 18s window,
+AcuRite Pro Weather Center,wind_spd,average_wind_speed,average wind speed over past 2 minutes,
+AcuRite Pro Weather Center,wind_spd,peak_wind_speed,highest wind speed in past 60 minutes,
+Ambient Weather WS 1002 WiFi,wind_spd,average_wind_speed,average wind speed over past 16 seconds,averaged over 5 min (observed)
+Ambient Weather WS 1002 WiFi,wind_gust,peak_wind_speed,max wind speed over past 16 seconds,averaged over 5 min (observed)
+Davis Vantage Pro II / weewx 1.14.1,wind_speed,average_wind_speed,,
+Davis Vantage Pro II / weewx 1.14.1,wind_gust,peak_wind_speed,max 2.5 sec wind speed over 5 minutes,used as is
