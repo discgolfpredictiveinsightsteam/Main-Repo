@@ -1,5 +1,5 @@
 import os
-
+import scipy.stats as st
 import numpy as np
 import pandas as pd
 from datetime import date
@@ -85,10 +85,39 @@ def weather_data():
     # return(jsonify(forecast['hourly']['data'][10]['windGust']))
     return(jsonify(list_1))
 
+@app.route("/score_model/<player1>/<player2>/<course>/<date>")
+def model_data(player1, player2, course, date):
+    """Return score prediction"""
+    model_df =  pd.read_csv('../scoreCalculator/data/score_model.csv')
+    
+    course = int(course)
+    player1_ns = player1.replace('_',' ')
+    player2_ns = player2.replace('_',' ')
+    player1_data = model_df.loc[(model_df['player'] == player1_ns) & (model_df['course_id'] == course)]
+    player2_data = model_df.loc[(model_df['player'] == player2_ns) & (model_df['course_id'] == course)]
+    player1_score = player1_data.mean()['intercept']
+    player2_score = player2_data.mean()['intercept']
+    player1_var = player1_data.mean()['mse']
+    player2_var = player2_data.mean()['mse']
+    score_diff = player2_score - player1_score
+    score_var = player1_var + player2_var
+    score_se = np.sqrt(score_var)
+    score_z = score_diff / score_se
+    odds = st.norm.cdf(score_z)
 
-#Donish needs: 1.wind gust (windGust)
-#2. wind direction (windBearing)
-#3. precipitation (precipIntensity)
+    list2 = []
+    list2.append(player1_score)
+    list2.append(player2_score)
+    list2.append(odds)
+
+    
+
+    return(jsonify(list2))
+
+
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
