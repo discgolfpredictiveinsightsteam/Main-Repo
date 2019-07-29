@@ -1,0 +1,4 @@
+﻿course_id,course_name,latitude,longitude,elev,dir_1,dir_2,dir_3,dir_4,dir_5,dir_6,dir_7,dir_8,dir_9,dir_10,dir_11,dir_12,dir_13,dir_14,dir_15,dir_16,dir_17,dir_18,dist_1,dist_2,dist_3,dist_4,dist_5,dist_6,dist_7,dist_8,dist_9,dist_10,dist_11,dist_12,dist_13,dist_14,dist_15,dist_16,dist_17,dist_18
+0,golden_gate_DGP,37.7706515,-122.4909691,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+1,lake_chabot_DGC,37.7433753,-122.120676,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+2,aquatic_park_DGC,37.8606053,-122.301984,,180,180,180,180,180,180,180,180,180,0,0,0,0,0,0,0,0,0,,,,,,,,,,,,,,,,,,
