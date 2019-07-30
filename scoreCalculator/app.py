@@ -266,7 +266,6 @@ def model_data(player1, player2, course, date):
     list2.append(player1_score)
     list2.append(player2_score)
     list2.append(odds)
-    list2.append([weighted_T, weighted_w_dir, weighted_w_gust, weighted_precip])
 
     return(jsonify(list2))
 
