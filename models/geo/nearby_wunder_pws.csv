@@ -11,7 +11,7 @@ KCASANFR1183,,,,0,,No wind data
 KCASANFR128,,,,0,,
 KCAOAKLA170,,,,1,,"No wind gust, local time error"
 KCASANLE245,,,,1,,No wind data
-KCASANLE244,,,,1,,
-KCACASTR49,,,,1,,local time error
-KCASANLE16,,,,1,,local time error
-KCASANLE13,,,,1,,local time error
+KCASANLE244,37.725,-122.143,62,1,Ambient Weather WS 2902,
+KCACASTR49,37.735,-122.096,775,1,Rainwise Mk III,local time error
+KCASANLE16,37.73,-122.146,79,1,Ambient Weather WS 1001 WiFi,local time error
+KCASANLE13,37.739,-122.154,52,1,Ambient Weather WS 1001,local time error
