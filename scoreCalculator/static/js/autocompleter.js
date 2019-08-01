@@ -1,4 +1,6 @@
-// d3.json("/players").then(function(namearray) {
+// d3.json("http://localhost:5000/players").then(function);
+
+
 // function autocomplete(inp, arr) {
 //     /*the autocomplete function takes two arguments,
 //     the text field element and an array of possible autocompleted values:*/
@@ -94,8 +96,12 @@
 //     document.addEventListener("click", function (e) {
 //         closeAllLists(e.target);
 //     });
-//     }
-// })
+//     });
+
+//     autocomplete(inp, arr);
+
+
+    // d3.json("/players").then(function(namearray) {})
 
 // function players1() {
   //   const selector = d3.select(".flexselect1");
@@ -111,7 +117,6 @@
   // jQuery(document).ready(function() {
   //   $("select.flexselect1").flexselect();
   // });
-
   function players2() {
     d3.json("http://localhost:5000/players").then(function(data) {
       console.log(data);
@@ -127,12 +132,11 @@
   }
   players2();
 
-  // d3.json()...
-  // ​
-  jQuery(document).ready(function() {
-    $("select.flexselect2").flexselect();
-  });
-
+  // // d3.json()...
+  // // ​
+  // jQuery(document).ready(function() {
+  //   $("select.flexselect2").flexselect();
+  // });
   // function DateTimeAutofill() {
   //   const selector = d3.select(".flexselect3");
   //   // Gonna have to make change to .flexselect in css to include flexselect1,2, and 3.

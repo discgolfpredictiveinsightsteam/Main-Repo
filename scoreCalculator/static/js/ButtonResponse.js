@@ -1,12 +1,14 @@
 function respond_to_button() {
     d3.event.preventDefault();
     console.log("Your button is reacting");
-    var userSelectedCrypto1 = d3.select("#Player1Input").node().value;
-    var userSelectedCrypto2 = d3.select("#Player2Input").node().value;
-    var userSelectedDateTime1 = d3.select("#CourseInput").node().value;
-    var userSelectedDateTime2 = d3.select("#DateTimeInput").node().value;
-    console.log(userSelectedCrypto1);
-    console.log(userSelectedDateTime1);
+    var userSelectedPlayer1 = d3.select("#Player1Input").node().value;
+    var userSelectedPlayer2 = d3.select("#Player2Input").node().value;
+    var userSelectedCourse = d3.select("#CourseInput").node().value;
+    var userSelectedDateTime = d3.select("#DateTimeInput").node().value;
+    console.log(userSelectedPlayer1);
+    console.log(userSelectedPlayer2);
+    console.log(userSelectedCourse);
+    console.log(userSelectedDateTime);
 
     buildPlot(player1, player2, course, date);
 };
