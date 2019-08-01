@@ -98,7 +98,7 @@
 //     });
 //     });
 
-//     autocomplete(inp, arr);
+//     autocomplete(player);
 
 
     // d3.json("/players").then(function(namearray) {})
@@ -120,6 +120,9 @@
   function players2() {
     d3.json("http://localhost:5000/players").then(function(data) {
       console.log(data);
+
+
+
       const selector = d3.select(".flexselect2");
       // Gonna have to make change to .flexselect in css to include flexselect1,2, and 3.
       const players = data;
