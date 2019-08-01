@@ -50,33 +50,43 @@ def home():
     """Render Home Page."""
     return render_template("base.html")
 
-@app.route("/stats")
-def stats_data():
+@app.route("/stats/<player1>/<player2>")
+def stats_data(player1, player2):
     """Return stats"""
-
-    results = db.session.query(Scores.Name, Scores.Raw, Scores.Handicap, Scores.Adjusted,
+    player1_name = player1.replace('_',' ')
+    player2_name = player2.replace('_',' ')
+    results1 = db.session.query(Scores.Name, Scores.Raw, Scores.Handicap, Scores.Adjusted,
     Scores.time, Scores.course_id).\
+    filter_by(Name = player1_name).\
     limit(20000).all()
 
-    print(results)
-    
-    Name = [result[0] for result in results]
-    Raw = [result[1] for result in results]
-    Handicap = [result[2] for result in results]
-    Adjusted = [result[3] for result in results]
-    time = [result[4] for result in results]
-    course_id = [result[5] for result in results]
+    results2 = db.session.query(Scores.Name, Scores.Raw, Scores.Handicap, Scores.Adjusted,
+    Scores.time, Scores.course_id).\
+    filter_by(Name = player2_name).\
+    limit(20000).all()
 
-    print(Name)
+    print(results1, results2)
+
+    
+
+    results = [results1, results2]
+    
     return jsonify(results)
 
-@app.route("/weather")
-def weather_data():
+@app.route("/weather/<course>/<date>")
+def weather_data(course, date):
     """Return weather prediction"""
-
+    course = int(course)
+    course_info_df = pd.read_csv('../ScoreCalculator/data/course_data.csv')
+    course_lat = course_info_df.loc[course_info_df.course == course,'lat'].values[0]
+    course_lon = course_info_df.loc[course_info_df.course == course,'lon'].values[0]
+    # First get the forecast -- API recall returns entire day's worth of data
     API_Key = os.environ['DARKSKY_KEY']
     base_url = 'https://api.darksky.net/forecast/'
-    url = base_url + API_Key + '/37.8,-122.2,2019-08-01T08:00:00?exclude=current,flags'
+    course_lat = str(course_lat)
+    course_lon = str(course_lon) 
+    url = base_url + API_Key + '/' + course_lat + ',' + course_lon + ',' + date + 'T12:00:00?exclude=current,flags'
+    # Forecast will be a list of dictionaries 
     forecast = requests.get(url).json()
     list_1 = []
 
