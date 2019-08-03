@@ -37,21 +37,21 @@
     <!-- <div id="map"></div>
     <script type="text/javascript" src="static/js/config.js"></script>
     <script type="text/javascript" src="static/js/logic.js"></script> -->
-    <div class="container pt-3" style="background: rgba(255,255,255,.6);">
+    <div class="container pt-3" style="background: rgba(255, 255, 255, 0.842); opacity: 1">
     <form autocomplete="off">
         <h6> Select two players, a course, and a date.</h6>
         <div class="row">
         <div class="autocomplete col">
-            <input type="text" class="form-control" id="Player1Input" placeholder="Player1">
+            <input type="text" class="form-control:focus redback" id="Player1Input" placeholder="Player1">
         </div>
         <div class="autocomplete col">
-            <input type="text" class="form-control" id="Player2Input" placeholder="Player2">
+            <input type="text" class="form-control:focus redback" id="Player2Input" placeholder="Player2">
         </div>
         <div class="autocomplete col">
-            <input type="text" class="form-control" id="CourseInput" placeholder="Course">
+            <input type="text" class="form-control:focus redback" id="CourseInput" placeholder="Course">
         </div>
         <div class="autocomplete col">
-            <input type="text" class="form-control" id="DateTimeInput" placeholder="DateTime">
+            <input type="text" class="form-control:focus redback" id="DateTimeInput" placeholder="DateTime">
         </div>
         <div class="col">
             <button id="button" class="btn btn-primary">Submit</button>
@@ -64,7 +64,7 @@
 
 
 
-                <h2>Course</h2>      
+            <h2 align="center">The Arena</h2>      
     <div class="row">
         <div class="col-md-12">
             <div class="JumboTronBro">
@@ -118,22 +118,23 @@
         </div>
     </div>
 
+        <hr>
 
 
 
-    <h3> Predicted Weather Factors </h3>
+    <h4 align="center"> Predicted Weather Factors </h4>
     <div class="row">
         
         <div class="col-md-12 justify-content-center">
             <table id="ufo-table" class="table table-striped">
-                <thead>
+                <thead align="center">
                     <tr>
                     <th class="table-head">Wind Direction</th>
                     <th class="table-head">Wind Gust Max Speed</th>
                     <th class="table-head">Precipitation</th>
                     </tr>
                 </thead>
-                <tbody id="PredictedWeather"></tbody>
+                <tbody align="center" id="PredictedWeather"></tbody>
             </table>
     </div>
         <div class="col-md-4">
@@ -150,7 +151,7 @@
         </div>    
     </div>
 
-    <h2>Predicted Score</h2>
+    <h2 align="center">Predicted Score</h2>
 
     <div class="SummaryScore1"></div>
     <div class="SummaryScore2"></div>
@@ -163,16 +164,16 @@
 
         <div class="col-md-12 justify-content-center">
                 <table id="ufo-table" class="table table-striped">
-                    <thead>
+                    <thead align="center">
                         <tr>
-                        <th class="table-head">Player 1</th>
-                        <th class="table-head">Predicted Score</th>
-                        <th class="table-head">Player 2</th>
-                        <th class="table-head">Predicted Score</th>
-                        <th class="table-head">Odds</th>
+                        <th class="table-head greenfonty">Player 1</th>
+                        <th class="table-head greenfonty">Predicted Score</th>
+                        <th class="table-head"><strong>Odds</strong></th>
+                        <th class="table-head redfonty">Predicted Score</th>
+                        <th class="table-head redfonty">Player 2</th>
                         </tr>
                     </thead>
-                    <tbody id="Odds"></tbody>
+                    <tbody align="center" id="Odds"></tbody>
                 </table>
         </div>
     </div>
@@ -180,12 +181,24 @@
     
     <div class="TheOddsBar"></div>
 
+    <svg width='100%' height='65px'>
+        <g class='bars'>
+            <rect fill='red' width='100%' height='25'></rect>;
+            <rect fill='green' width='45%' height='25'></rect>
+        </g>
+    </svg>
+
+
+    <br>
+    <br>
+    <br>
+    <br>
 
 
 
-    <button class="collapsible">Total Career Stats</button>
-    <div class="content">
-        <h2>Total Career Stats</h2>
+    <!-- <button class="collapsible">Hide Player Profiles</button>
+    <div class="content"> -->
+        <h2 align="center">Player History</h2>
     <div class="row">
             <div class="col-md-2">
                 <div class="Counta">
@@ -225,14 +238,23 @@
     </div>
     
     <div class="row">
-        <div class="col-md-6" id="lineplot1"></div>
-        <div class="col-md-6" id="lineplot2"></div>
+        <div class="col-md-3" id="lineplot1"></div>
+        <div class="col-md-3" id="boxplot1"></div>
+        <div class="col-md-3" id="boxplot2"></div>
+        <div class="col-md-3" id="lineplot2"></div>
     </div>
-    <div class="row">
-        <div class="col-md-6" id="boxplot1"></div>
-        <div class="col-md-6" id="boxplot2"></div>
-    </div>
-</div>
+<!-- </div> -->
+
+    <br>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
 
     <div class="row">
         <div class="col-md-12">

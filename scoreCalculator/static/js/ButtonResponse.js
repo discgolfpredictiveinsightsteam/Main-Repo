@@ -4,24 +4,24 @@ document.getElementById("button").addEventListener("click", function(event){
 });
 
 
-function Collapser() {
-var coll = document.getElementsByClassName("collapsible");
-var i;
+// function Collapser() {
+// var coll = document.getElementsByClassName("collapsible");
+// var i;
 
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.display === "block") {
-      content.style.display = "none";
-    } else {
-      content.style.display = "block";
-    }
-  });
-}
-}
+// for (i = 0; i < coll.length; i++) {
+//   coll[i].addEventListener("click", function() {
+//     this.classList.toggle("active");
+//     var content = this.nextElementSibling;
+//     if (content.style.display === "block") {
+//       content.style.display = "none";
+//     } else {
+//       content.style.display = "block";
+//     }
+//   });
+// }
+// }
 
-Collapser();
+// Collapser();
 
 // $(document).ready(function() {
 //     $('#button').on('click', function(event) {
@@ -155,7 +155,11 @@ function careerstats(guy1, guy2) {
       var sum2 = 0;
       var firstZero = "0";
 
-      array1 = [];
+
+      if (p1Ngames < 8 || p2Ngames < 8) {
+        modelWeak();
+      }
+
 
 // Once we isolate the 5th value of each array...
 // The task is to add zeroes to each array of length 12,
@@ -347,11 +351,14 @@ function careerstats(guy1, guy2) {
           mode: "markers",
           x: array4,
           y: array5[0],
+          marker: {
+            color: 'green'
+          }
         }
       ];
 
       var layout1 = {
-        title: guy1 + ' Recorded Scores',
+        title: 'Recorded Scores',
         yaxis: {
           title: 'Points',
         },
@@ -366,11 +373,14 @@ function careerstats(guy1, guy2) {
           mode: "markers",
           x: array4b,
           y: array5b[0],
+          marker: {
+            color: 'red'
+          }
         }
       ];
 
       var layout2 = {
-        title: guy2 + ' Recorded Scores',
+        title: 'Recorded Scores',
         yaxis: {
           title: 'Points',
         },
@@ -385,12 +395,15 @@ function careerstats(guy1, guy2) {
           boxpoints: 'all',
           jitter: 0.3,
           poitpos: -1.8,
-          type: 'box'
+          type: 'box',
+          marker: {
+            color: 'green'
+          }
         }
       ];
 
       var layout3 = {
-        title: '1-D Distribution of scores',
+        title: 'Score Dist',
         yaxis: {
           title: 'Points'
         }
@@ -402,12 +415,15 @@ function careerstats(guy1, guy2) {
           boxpoints: 'all',
           jitter: 0.3,
           poitpos: -1.8,
-          type: 'box'
+          type: 'box',
+          marker: {
+            color: 'red'
+          }
         }
       ];
 
       var layout4 = {
-        title: '1-D Distribution of scores',
+        title: 'Score Dist',
         yaxis: {
           title: 'Points'
         }
@@ -508,14 +524,23 @@ cell.text(player1);
 var cell = tbodyodds.append("td");
 cell.text(score1);
 var cell = tbodyodds.append("td");
-cell.text(player2);
+cell.text(oddsscore);
 var cell = tbodyodds.append("td");
 cell.text(score2);
 var cell = tbodyodds.append("td");
-cell.text(oddsscore);
+cell.text(player2);
+
 row.text("");
   });
 }
+
+
+
+function modelWeak() {
+  alert("One or more of the players you have selected has fewer than 8 games! Thus, the model may be less robust.");
+}
+
+
 
 
         

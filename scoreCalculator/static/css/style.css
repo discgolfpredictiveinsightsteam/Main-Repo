@@ -47,3 +47,50 @@ input[type=submit] {
   background-color: DodgerBlue !important; 
   color: #ffffff; 
 }
+
+.form-control:focus {
+  border-color: #ff0000;
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+.has-error .form-control:focus{
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+#button {
+font-size:18pt;
+color:white;
+background-color:green;
+border:2px solid #336600;
+padding:3px
+}
+
+.collapsible {
+  color: white;
+  background-color: green;
+}
+
+.greenfonty {
+  color: green;
+}
+.greenishfonty {
+  color: #3FBF00
+}
+.redishfonty {
+  color: #BF3F00
+}
+.redfonty {
+  color: #FF0000
+}
+
+body {
+  background-image: url("../src/DSC_0064.JPG");
+  background-position: center;
+  background-size: inherit;
+  background-repeat: no-repeat
+}
+
+.plot-container {
+  margin-left: -30px;
+}
