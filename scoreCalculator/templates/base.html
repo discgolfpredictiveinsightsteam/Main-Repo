@@ -6,37 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>DiscGolf Deep Analytics</title>
     
-<!-- Leaflet -->
-    <!-- Leaflet JS & CSS -->
-        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
-        integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
-        crossorigin=""/>
-        <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
-        integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
-        crossorigin=""></script>
-
-    <!-- Marker Cluster JS & CSS -->
-        <script type="text/javascript" src="https://unpkg.com/leaflet.markercluster@1.0.3/dist/leaflet.markercluster.js"></script>
-        <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.css">
-        <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.Default.css">
-
     <!-- Our CSS -->
-        <link rel="stylesheet" type="text/css" href="static/css/style.css">
-
+    <link rel="stylesheet" type="text/css" href="../../static/css/style.css">
+    <!-- <link rel="stylesheet" type="text/css" href="../../static/css/flexselect.css"> -->
 <!-- Libraries -->
-    <!-- d3 JS -->
-        <!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
 
-    <!-- ajax // Plotly -->   
-        <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
-        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>  -->
+<!-- <script src="../../static/js/jquery.flexselect.js"></script>
+<script src="../../static/js/liquidmetal.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/core.js"></script> -->
 
-    <!-- Bootstrap -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!-- d3 JS -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
 
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<!-- ajax // Plotly -->   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script> 
+
+<!-- Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
 
@@ -49,19 +42,25 @@
         <h6> Select two players, a course, and a date.</h6>
         <div class="row">
         <div class="autocomplete col">
-            <input id="myInput" type="text" class="form-control" id="Player1Input" name="Player1Input" placeholder="Player1">
+            <input type="text" class="form-control" id="Player1Input" placeholder="Player1">
         </div>
         <div class="autocomplete col">
-            <input id="myInput" type="text" class="form-control" id="Player2Input" name="Player2Input" placeholder="Player2">
+            <input type="text" class="form-control" id="Player2Input" placeholder="Player2">
         </div>
         <div class="autocomplete col">
-            <input id="myInput" type="text" class="form-control" id="CourseInput" name="CourseInput" placeholder="Course">
+            <select id="CourseInput">
+                <option value="" disabled selected>Select a course...</option>
+                <option value="0">San Francisco</option>
+                <option value="1">Chabot</option>
+                <option value="2">Aquatic Park</option>
+                
+              </select>
         </div>
         <div class="autocomplete col">
-            <input id="myInput" type="text" class="form-control" id="DateTimeInput" name="DateTimeInput" placeholder="DateTime">
+            <input type="text" class="form-control" id="DateTimeInput" placeholder="DateTime">
         </div>
         <div class="col">
-            <button id="submit" type="submit" class="btn btn-primary">Submit</button>
+            <button id="button" class="autocompletebtn">Submit</button>
         </div>
     </div>  
     </form>
@@ -186,17 +185,41 @@
     </div>
     
     <h2>Predicted Score</h2>
+
+    <div class="SummaryScore1"></div>
+    <div class="SummaryScore2"></div>
+    <div class="Odds"></div>
+
+
+    <div class="row">
+
+
+
+        <div class="col-md-12 justify-content-center">
+                <table id="ufo-table" class="table table-striped">
+                        <thead>
+                          <tr>
+                            <th class="table-head">Player 1</th>
+                            <th class="table-head">Predicted Score</th>
+                            <th class="table-head">Player 2</th>
+                            <th class="table-head">Predicted Score</th>
+                            <th class="table-head">Odds</th>
+                          </tr>
+                        </thead>
+                        <tbody id="Odds"></tbody>
+                      </table>
+        </div>
+    </div>
+
     
     <div class="TheOddsBar"></div>
 
 
-    <script src="{{ url_for('static', filename='js/career.js') }}"></script>
-    
-   
-
-
-    
-    <script> autocomplete(document.getElementById("myInput"), players) </script>
+    <!-- <script src="{{ url_for('static', filename='js/autocompleter.js') }}"></script> -->
+    <script src="{{ url_for('static', filename='js/ButtonResponse.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/autocomp_test.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/autocomp2.js') }}"></script>
+    <!-- <script> autocomplete(document.getElementById("myInput"), players) </script> -->
 
 </body>
 
