@@ -91,6 +91,14 @@ body {
   background-repeat: no-repeat
 }
 
-.plot-container {
+.js-plotly-plot {
   margin-left: -30px;
+}
+
+.redback {
+  border:10px solid #FF0000
+}
+
+.greenback {
+  border:10px solid green
 }

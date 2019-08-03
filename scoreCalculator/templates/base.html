@@ -42,16 +42,16 @@
         <h6> Select two players, a course, and a date.</h6>
         <div class="row">
         <div class="autocomplete col">
-            <input type="text" class="form-control:focus redback" id="Player1Input" placeholder="Player1">
+            <input type="text" class="form-control:focus redback" id="Player1Input" placeholder="Player1" style="border:2px solid green">
         </div>
         <div class="autocomplete col">
-            <input type="text" class="form-control:focus redback" id="Player2Input" placeholder="Player2">
+            <input type="text" class="form-control:focus greenback" id="Player2Input" placeholder="Player2" style="border:2px solid red">
         </div>
         <div class="autocomplete col">
-            <input type="text" class="form-control:focus redback" id="CourseInput" placeholder="Course">
+            <input type="text" class="form-control:focus" id="CourseInput" placeholder="Course" style = "border: 2px solid black">
         </div>
         <div class="autocomplete col">
-            <input type="text" class="form-control:focus redback" id="DateTimeInput" placeholder="DateTime">
+            <input type="text" class="form-control:focus" id="DateTimeInput" placeholder="DateTime" style="border: 2px solid black">
         </div>
         <div class="col">
             <button id="button" class="btn btn-primary">Submit</button>
@@ -64,11 +64,10 @@
 
 
 
-            <h2 align="center">The Arena</h2>      
+    <h3 align="center">Selected Arena</h3>      
     <div class="row">
         <div class="col-md-12">
-            <div class="JumboTronBro">
-            </div>
+            <img src="../static/src/sfbanner.jpg" width= 500px height = 400px id="JumboTronBro">
         </div>
     </div>
 
@@ -151,7 +150,7 @@
         </div>    
     </div>
 
-    <h2 align="center">Predicted Score</h2>
+    <h2 align="center">Predicted Outcome</h2>
 
     <div class="SummaryScore1"></div>
     <div class="SummaryScore2"></div>
@@ -198,7 +197,7 @@
 
     <!-- <button class="collapsible">Hide Player Profiles</button>
     <div class="content"> -->
-        <h2 align="center">Player History</h2>
+        <h3 align="center">Comparison of Player Histories</h3>
     <div class="row">
             <div class="col-md-2">
                 <div class="Counta">
@@ -238,11 +237,15 @@
     </div>
     
     <div class="row">
-        <div class="col-md-3" id="lineplot1"></div>
-        <div class="col-md-3" id="boxplot1"></div>
-        <div class="col-md-3" id="boxplot2"></div>
-        <div class="col-md-3" id="lineplot2"></div>
+        <div class="col-md-6" id="lineplot1"></div>
+        <div class="col-md-6" id="lineplot2"></div>
     </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8" id="boxplot1"></div>
+        <div class="col-md-2" id="boxplot2"></div>
+    </div>
+    
 <!-- </div> -->
 
     <br>

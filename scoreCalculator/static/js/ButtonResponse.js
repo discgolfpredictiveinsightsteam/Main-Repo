@@ -46,17 +46,15 @@ function respond_to_button() {
   giveodds(userSelectedPlayer1, userSelectedPlayer2, userSelectedCourse, userSelectedDateTime);
   predictweather(userSelectedCourse, userSelectedDateTime);
   careerstats(userSelectedPlayer1, userSelectedPlayer2);
+  coursedisplay(userSelectedCourse);
 };
 
-  // coursedisplay(userSelectedCourse);
-  // player1stats(userSelectedPlayer1, userSelectedCourse);
-  // player2stats(userSelectedPlayer2, userSelectedCourse);
 
-// function coursedisplay() {
-//   console.log("Course Display is in play");
-
-
-// }
+function coursedisplay(image) {
+    console.log("Course Display is in play");
+    var imagepick = $('#JumboTronBro');
+    imagepick.src = '../static/src/sfbanner.jpg';
+  }
 
 
 function predictweather(course, date) {
@@ -358,7 +356,7 @@ function careerstats(guy1, guy2) {
       ];
 
       var layout1 = {
-        title: 'Recorded Scores',
+        title: guy1 + " Recorded Scores",
         yaxis: {
           title: 'Points',
         },
@@ -380,7 +378,7 @@ function careerstats(guy1, guy2) {
       ];
 
       var layout2 = {
-        title: 'Recorded Scores',
+        title: guy2 + " Recorded Scores",
         yaxis: {
           title: 'Points',
         },
@@ -389,7 +387,7 @@ function careerstats(guy1, guy2) {
         }
       }
 
-      var data3 = [
+      var trace3 =
         {
           y: array5[0],
           boxpoints: 'all',
@@ -400,7 +398,7 @@ function careerstats(guy1, guy2) {
             color: 'green'
           }
         }
-      ];
+      ;
 
       var layout3 = {
         title: 'Score Dist',
@@ -409,7 +407,7 @@ function careerstats(guy1, guy2) {
         }
       }
 
-      var data4 = [
+      var trace4 =
         {
           y: array5b[0],
           boxpoints: 'all',
@@ -420,7 +418,7 @@ function careerstats(guy1, guy2) {
             color: 'red'
           }
         }
-      ];
+      ;
 
       var layout4 = {
         title: 'Score Dist',
@@ -429,12 +427,13 @@ function careerstats(guy1, guy2) {
         }
       }
 
+      var data3 = [trace3,trace4]
 
 
-      Plotly.newPlot("lineplot1", data1, layout1, {responsive: true});
-      Plotly.newPlot("lineplot2", data2, layout2, {responsive: true});
-      Plotly.newPlot("boxplot1", data3, layout3, {responsive: true});
-      Plotly.newPlot("boxplot2", data4, layout4, {responsive: true});
+      Plotly.newPlot("lineplot1", data1, layout1);
+      Plotly.newPlot("lineplot2", data2, layout2);
+      Plotly.newPlot("boxplot1", data3, layout3);
+      // Plotly.newPlot("boxplot2", data4, layout4);
       
       
 
