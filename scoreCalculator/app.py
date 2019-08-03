@@ -8,7 +8,7 @@ import sqlalchemy
 from sqlalchemy.ext.automap import automap_base
 from sqlalchemy.orm import Session
 from sqlalchemy import create_engine, func, inspect, desc
-
+from flask_cors import CORS
 from flask import (
     Flask,
     render_template,
@@ -19,6 +19,7 @@ from flask_sqlalchemy import SQLAlchemy
 import requests
 
 app = Flask(__name__)
+CORS(app)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///db/scores.sqlite"
 
@@ -123,7 +124,7 @@ def model_data(player1, player2, course, date):
     course_lat = course_info_df.loc[course_info_df.course == course,'lat'].values[0]
     course_lon = course_info_df.loc[course_info_df.course == course,'lon'].values[0]
     # First get the forecast -- API recall returns entire day's worth of data
-    API_Key = os.environ['CYAN_KEY']
+    API_Key = os.environ['DARKSKY_KEY']
     base_url = 'https://api.darksky.net/forecast/'
     course_lat = str(course_lat)
     course_lon = str(course_lon) 
@@ -243,7 +244,7 @@ def model_data(player1, player2, course, date):
 
     # Generate prediction based on model
 
-    model_df =  pd.read_csv('../scoreCalculator/data/score_model2_fill0.csv')
+    model_df =  pd.read_csv('../scoreCalculator/data/score_model.csv')
     player1_ns = player1.replace('_',' ')
     player2_ns = player2.replace('_',' ')
     player1_data = model_df.loc[(model_df['player'] == player1_ns) & (model_df['course_id'] == course)]
@@ -271,7 +272,12 @@ def model_data(player1, player2, course, date):
     score_se = np.sqrt(score_var)
     score_z = score_diff / score_se
     odds = st.norm.cdf(score_z)
-
+    if np.isnan(player1_score):
+        player1_score = 0
+    if np.isnan(player2_score):
+        player2_score = 0
+    if np.isnan(odds):
+        odds = 0.5
     list2 = []
     list2.append(player1_score)
     list2.append(player2_score)
