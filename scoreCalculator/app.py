@@ -1,5 +1,5 @@
 import os
-import scipy.stats as st
+import math
 import numpy as np
 import pandas as pd
 import datetime as dt
@@ -271,7 +271,7 @@ def model_data(player1, player2, course, date):
     score_var = player1_var + player2_var
     score_se = np.sqrt(score_var)
     score_z = score_diff / score_se
-    odds = st.norm.cdf(score_z)
+    odds = (1.0 + math.erf(score_z / np.sqrt(2.0))) / 2.0
     if np.isnan(player1_score):
         player1_score = 0
     if np.isnan(player2_score):
