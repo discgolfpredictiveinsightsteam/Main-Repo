@@ -22,4 +22,5 @@ SQLAlchemy==1.2.12
 Werkzeug==0.14.1
 wincertstore==0.2
 wrapt==1.10.11
-scipi==1.2.1
+requests==2.22.0
+flask_cors==3.0.8
