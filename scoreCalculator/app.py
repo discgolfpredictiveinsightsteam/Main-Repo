@@ -78,7 +78,7 @@ def stats_data(player1, player2):
 def weather_data(course, date):
     """Return weather prediction"""
     course = int(course)
-    course_info_df = pd.read_csv('data/course_data.csv')
+    course_info_df = pd.read_csv('static/data/course_data.csv')
     course_lat = course_info_df.loc[course_info_df.course == course,'lat'].values[0]
     course_lon = course_info_df.loc[course_info_df.course == course,'lon'].values[0]
     # First get the forecast -- API recall returns entire day's worth of data
@@ -120,11 +120,11 @@ def model_data(player1, player2, course, date):
         course = 0
 
     # Import course data 
-    course_info_df = pd.read_csv('data/course_data.csv')
+    course_info_df = pd.read_csv('static/data/course_data.csv')
     course_lat = course_info_df.loc[course_info_df.course == course,'lat'].values[0]
     course_lon = course_info_df.loc[course_info_df.course == course,'lon'].values[0]
     # First get the forecast -- API recall returns entire day's worth of data
-    API_Key = os.environ['DARKSKY_KEY']
+    API_Key = os.environ['CYAN_KEY']
     base_url = 'https://api.darksky.net/forecast/'
     course_lat = str(course_lat)
     course_lon = str(course_lon) 
@@ -244,7 +244,7 @@ def model_data(player1, player2, course, date):
 
     # Generate prediction based on model
 
-    model_df =  pd.read_csv('data/score_model.csv')
+    model_df =  pd.read_csv('static/data/score_model.csv')
     player1_ns = player1.replace('_',' ')
     player2_ns = player2.replace('_',' ')
     player1_data = model_df.loc[(model_df['player'] == player1_ns) & (model_df['course_id'] == course)]
