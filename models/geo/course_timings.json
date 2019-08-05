@@ -24,7 +24,7 @@
     "start_times_dst" :
         {"type" : "rolling",
         "rolling_earliest" : 930,
-        "rolling_latest" : 1800},
+        "rolling_latest" : 1080},
     "end_times_dst" :
         {"type" : "fixed_length",
         "fixed_length" : 180},
