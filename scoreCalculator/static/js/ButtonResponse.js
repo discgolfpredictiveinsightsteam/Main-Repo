@@ -1,35 +1,8 @@
+
 document.getElementById("button").addEventListener("click", function(event){
   event.preventDefault();
   respond_to_button();
 });
-
-
-// function Collapser() {
-// var coll = document.getElementsByClassName("collapsible");
-// var i;
-
-// for (i = 0; i < coll.length; i++) {
-//   coll[i].addEventListener("click", function() {
-//     this.classList.toggle("active");
-//     var content = this.nextElementSibling;
-//     if (content.style.display === "block") {
-//       content.style.display = "none";
-//     } else {
-//       content.style.display = "block";
-//     }
-//   });
-// }
-// }
-
-// Collapser();
-
-// $(document).ready(function() {
-//     $('#button').on('click', function(event) {
-//         event.preventDefault();
-//         console.log("Button is reacting");
-//         respond_to_button();
-//     });
-// });
 
 function respond_to_button() {
   console.log("Your button is reacting");
@@ -50,10 +23,20 @@ function respond_to_button() {
 };
 
 
-function coursedisplay(image) {
+
+
+function coursedisplay(choice) {
     console.log("Course Display is in play");
-    var imagepick = $('#JumboTronBro');
-    imagepick.src = '../static/src/sfbanner.jpg';
+    console.log(choice);
+    if (choice == 0) {
+      document.getElementById('JumboTronBro').innerHTML="<img src=../static/src/san_francisco_cropped.jpg>";
+    }
+    else if (choice == 1) {
+      document.getElementById('JumboTronBro').innerHTML="<img src=../static/src/aquatic_park_cropped.jpg>";
+    }
+    else {
+      document.getElementById('JumboTronBro').innerHTML="<img src=../static/src/chabot_cropped.jpg>"
+    }
   }
 
 
@@ -339,9 +322,6 @@ function careerstats(guy1, guy2) {
           };
           
         //  console.log(array5b);
-
-
-        
           
       var data1 = [
         {
@@ -401,10 +381,11 @@ function careerstats(guy1, guy2) {
       ;
 
       var layout3 = {
-        title: 'Score Dist',
+        title: 'Relative Distributions',
         yaxis: {
           title: 'Points'
-        }
+        },
+        showlegend: false 
       }
 
       var trace4 =
@@ -430,6 +411,9 @@ function careerstats(guy1, guy2) {
       var data3 = [trace3,trace4]
 
 
+
+
+
       Plotly.newPlot("lineplot1", data1, layout1);
       Plotly.newPlot("lineplot2", data2, layout2);
       Plotly.newPlot("boxplot1", data3, layout3);
@@ -438,64 +422,83 @@ function careerstats(guy1, guy2) {
       
 
       d3.select("Counta").append("h6").text(p1Ngames);
-      })
-    };
+      
+      array6 = array5[0];
+      array7 = array6.map(Number);
+
+      array6b = array5b[0];
+      array7b = array6b.map(Number);
+
+      console.log(array7);
+
+
+      var P1N = array5[0].length;
+      var P2N = array5b[0].length;
       
 
-        // for (var j = 0; j < subarray3.length; j++) {
-        //   if (j % 6 == 4) {
-        //     var itemc = subarray3[j];
-        //     console.log(itemc.length)
-             
-        //     }
-        //     else {
-        //       subarray4.push(itemc);
-        //     }
-            
-        //   }
-        // }
-        // console.log(subarray4)
-        
-        
+      function mean(numbers) {
+        // mean of [3, 5, 4, 4, 1, 1, 2, 3] is 2.875
+        var total = 0,
+            i;
+        for (i = 0; i < numbers.length; i += 1) {
+            total += numbers[i];
+        }
+        return total / numbers.length;
+    }
 
-//    }
-//   }
-//     });
-// };
-// Next, the task is to append ":00" to each string
-// Next, the task is to Concatenate our arrays so that they are one big array for Plotly to handle
+      var P1Mean = mean(array7);
+      console.log(P1Mean);
+      var P2Mean = mean(array7b);
+      console.log(P2Mean);      
+
+      console.log(P1N);
+      console.log(P2N);
 
 
+
+
+
+      var P1StDev = variance(array7);
+      var P2StDev = variance(array7b)
+      console.log(P1StDev);
+      console.log(P2StDev);
+
+      var tbodysummary1 = d3.select("#ASummary");
+      
+      tbodysummary1.html("");
+      
+      var row1 = tbodysummary1.append("tr");
+      var cell1 = tbodysummary1.append("td");
+      cell1.text(P1N);
+      var cell1 = tbodysummary1.append("td");
+      cell1.text(P1Mean);
+      var cell1 = tbodysummary1.append("td");
+      cell1.text(P1StDev);
+
+      var tbodysummary2 = d3.select("#BSummary");
+
+      tbodysummary2.html("");
+
+      var row2 = tbodysummary2.append("tr");
+      var cell = tbodysummary2.append("td");
+      cell.text(P2StDev);
+      var cell = tbodysummary2.append("td");
+      cell.text(P2Mean);
+      var cell = tbodysummary2.append("td");
+      cell.text(P2N);
+      
+      row1.text("");
+      row2.text("");
+    })};
+      
+// Still need N, Mean, and SD
+  
 
 // if (no course history but odds being predicted there) warningMessage2();
 
-function standardDeviation(values){
-  var avg = average(values);
-  
-  var squareDiffs = values.map(function(value){
-    var diff = value - avg;
-    var sqrDiff = diff * diff;
-    return sqrDiff;
-  });
-  
-  var avgSquareDiff = average(squareDiffs);
 
-  var stdDev = Math.sqrt(avgSquareDiff);
-  return stdDev;
-}
 
-function average(data){
-  var sum = data.reduce(function(sum, value){
-    return sum + value;
-  }, 0);
 
-  var avg = sum / data.length;
-  return avg;
-}
-
-function warningMessage() {
-
-}
 
 function giveodds(player1, player2, course, date) {
   console.log("giveodds is in play");
@@ -533,6 +536,80 @@ row.text("");
   });
 }
 
+function isNum(args)
+{
+args = args.toString();
+if (args.length == 0) return false;
+for (var i = 0; i<args.length; i++)
+{
+if ((args.substring(i,i+1) < "0" || args.substring(i, i+1) > "9") && args.substring(i, i+1) != "."&& args.substring(i, i+1) != "-")
+{
+return false;
+}
+}
+return true;
+}
+//calculate the mean of a number array
+function mean(arr)
+{
+var len = 0;
+var sum = 0;
+for(var i=0;i<arr.length;i++)
+{
+if (arr[i] == ""){}
+else if (!isNum(arr[i]))
+{
+alert(arr[i] + " is not number!");
+return;
+}
+else
+{
+len = len + 1;
+sum = sum + parseFloat(arr[i]);
+}
+}
+return sum / len;
+}
+
+
+function variance(arr)
+{
+var len = 0;
+var sum=0;
+for(var i=0;i<arr.length;i++)
+{
+if (arr[i] == ""){}
+else if (!isNum(arr[i]))
+{
+alert(arr[i] + " is not number, Variance Calculation failed!");
+return 0;
+}
+else
+{
+len = len + 1;
+sum = sum + parseFloat(arr[i]);
+}
+}
+var v = 0;
+if (len > 1)
+{
+var mean = sum / len;
+for(var i=0;i<arr.length;i++)
+{
+if (arr[i] == ""){}
+else
+{
+v = v + (arr[i] - mean) * (arr[i] - mean);
+}
+}
+return v / len;
+}
+else
+{
+return 0;
+}
+};
+
 
 
 function modelWeak() {
@@ -541,53 +618,7 @@ function modelWeak() {
 
 
 
-
-        
-        // if (j % 6 == 1) {
-        //   var item = entry1[j];
-        //   subarray1.push(item);
-        // }
-
-
-          
-
-
-// I can do an add if the length is 12 or 13, and not if the length is 14.
-// if 12, needs 2 added zeroes.
-// if 13, needs just 1 added zero.
-// Then dashes at preordained indices.
-
-
-
-      //   }
-      // array1.push(subarray1);
-      // array3.push(subarray3);
-      // }
-
-      // for (var i = 0; i < array1.length; i++){
-      //   sum1 += parseInt(array1[i], 10)
-      // }
-      // var p1mean = sum1/array1.length;
-      // console.log(array1)
-      // console.log(p1mean)
-
-
-      // for (var i = 0; i < careerscores[1].length; i++){
-      //   var entry2 = careerscores[1][i];
-      //   subarray2 = [];
-      //   for (var j = 0; j < entry2.length; j++)
-      //   if (j % 6 == 1) {
-      //     var item2 = entry2[j];
-      //     subarray2.push(item2);
-      //   }
-      // array2.push(subarray2);
-      // }
-      // for (var i = 0; i < array2.length; i++){
-      //   sum2 += parseInt(array2[i], 10)
-      // }
-      // var p2mean = sum2/array2.length;
-      // console.log(array2)
-      // console.log(p2mean)
+  
 
       // var mergedarray1 = [].concat.apply([], array1);
       // var mergedarray2 = [].concat.apply([], array2);

@@ -63,11 +63,10 @@
 
 
 
-
     <h3 align="center">Selected Arena</h3>      
     <div class="row">
         <div class="col-md-12">
-            <img src="../static/src/sfbanner.jpg" width= 500px height = 400px id="JumboTronBro">
+            <div id="JumboTronBro" class="text-center"></div>
         </div>
     </div>
 
@@ -178,6 +177,7 @@
     </div>
 
     
+
     <div class="TheOddsBar"></div>
 
     <svg width='100%' height='65px'>
@@ -199,28 +199,56 @@
     <div class="content"> -->
         <h3 align="center">Player Histories at a Glance</h3>
     <div class="row">
+            <div class="col-md-6">
+                    <table id="p1summary" class="table table-striped">
+                        <thead align="center">
+                            <tr>
+                            <th class="table-head greenfonty">Match Count</th>
+                            <th class="table-head greenfonty">Mean</th>
+                            <th class="table-head greenfonty"><strong>Standard Deviation</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody align="center" id="ASummary"></tbody>
+                    </table>
+            </div>
+            <div class="col-md-6">
+                    <table id="p2summary" class="table table-striped">
+                        <thead align="center">
+                            <tr>
+                            <th class="table-head redfonty">Standard Deviation</th>
+                            <th class="table-head redfonty">Mean</th>
+                            <th class="table-head redfonty"><strong>Match Count</strong></th>
+                            </tr>
+                        </thead>
+                        <tbody align="center" id="BSummary"></tbody>
+                    </table>
+            </div>
+        </div>
+
+
+
             <div class="col-md-2">
-                <div class="Counta">
+                <div id="Counta">
                 </div>
             </div>
             <div class="col-md-2">
-                <div class="Meana">
+                <div id="Meana">
                 </div>
             </div>
             <div class="col-md-2">
-                <div class="StandardDeva">
+                <div id="StandardDeva">
                 </div>
             </div>
             <div class="col-md-2">
-                <div class="Countb">
+                <div id="Countb">
                 </div>
             </div>
             <div class="col-md-2">
-                <div class="Meanb">
+                <div id="Meanb">
                 </div>
             </div>
             <div class="col-md-2">
-                <div class="StandardDevb">
+                <div id="StandardDevb">
                 </div>
             </div>                                                                          
         </div>
