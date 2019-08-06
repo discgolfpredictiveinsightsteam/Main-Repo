@@ -51,5 +51,9 @@ Acknowledgements:
 We'd like to thank the Golden Gate, Lake Chabot, and East Bay disc golf leagues for 
 sharing their public score data. 
 
+Lastly ... 
 
+Here is a cat for Andi.
+
+![alt text](https://www.eatliver.com/wp-content/uploads/2018/08/trump-cat1.jpg) 
 
